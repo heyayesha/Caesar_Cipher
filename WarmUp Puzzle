@@ -1,0 +1,26 @@
+//Julius Caesar protected his confidential information by encrypting it using a cipher. 
+//Caesar's cipher shifts each letter by a number of letters. If the shift takes you past the end of the alphabet, just rotate back to the front of the alphabet.
+// In the case of a rotation by 3, w, x, y, and z would map to z, a, b and c. 
+//Code the Caesar Cipher in Javascript and submit it here.
+
+// Encrypts text using a shift od s
+
+function encrypt(text, s)
+{
+    let result=""
+    for (let i = 0; i < text.length; i++)  // length of the text  as by letter as by number of letters
+    {
+        let char = text[i];
+        if (char.toUpperCase(text[i]))  //condition if 
+        {
+            let ch =  String.fromCharCode((char.charCodeAt(0) + s-65) % 26 + 65);
+            result += ch;
+        }
+        else   //otherwise the following condition
+        {
+            let ch = String.fromCharCode((char.charCodeAt(0) + s-97) % 26 + 97);
+            result += ch;
+        }
+    }
+    return result;  // return to the result
+}
